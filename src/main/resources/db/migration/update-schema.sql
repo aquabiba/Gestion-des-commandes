@@ -1,0 +1,79 @@
+ALTER TABLE concerner
+    DROP CONSTRAINT facture_article_article_id_fkey;
+
+ALTER TABLE concerner
+    DROP CONSTRAINT facture_article_facture_id_fkey;
+
+DROP TABLE concerner CASCADE;
+
+ALTER TABLE client
+    ALTER COLUMN adresseCl TYPE VARCHAR(255) USING (adresseCl::VARCHAR(255));
+
+ALTER TABLE article
+    ALTER COLUMN couleur TYPE VARCHAR(255) USING (couleur::VARCHAR(255));
+
+ALTER TABLE commande
+    DROP COLUMN dateCom;
+
+ALTER TABLE commande
+    ADD dateCom TIMESTAMP WITHOUT TIME ZONE;
+
+ALTER TABLE commande
+    ALTER COLUMN dateCom DROP NOT NULL;
+
+ALTER TABLE facture
+    DROP COLUMN dateFact;
+
+ALTER TABLE facture
+    DROP COLUMN montant;
+
+ALTER TABLE facture
+    ADD dateFact TIMESTAMP WITHOUT TIME ZONE;
+
+ALTER TABLE facture
+    ALTER COLUMN dateFact DROP NOT NULL;
+
+ALTER TABLE article
+    ALTER COLUMN desArt TYPE VARCHAR(255) USING (desArt::VARCHAR(255));
+
+ALTER TABLE article
+    ALTER COLUMN desArt DROP NOT NULL;
+
+ALTER TABLE utilisateur
+    ALTER COLUMN fonction TYPE VARCHAR(255) USING (fonction::VARCHAR(255));
+
+ALTER TABLE facture
+    ADD montant DOUBLE PRECISION NOT NULL;
+
+ALTER TABLE client
+    ALTER COLUMN nomCl TYPE VARCHAR(255) USING (nomCl::VARCHAR(255));
+
+ALTER TABLE client
+    ALTER COLUMN nomCl DROP NOT NULL;
+
+ALTER TABLE utilisateur
+    ALTER COLUMN nomUt TYPE VARCHAR(255) USING (nomUt::VARCHAR(255));
+
+ALTER TABLE utilisateur
+    ALTER COLUMN nomUt DROP NOT NULL;
+
+ALTER TABLE client
+    ALTER COLUMN prenomCl TYPE VARCHAR(255) USING (prenomCl::VARCHAR(255));
+
+ALTER TABLE client
+    ALTER COLUMN prenomCl DROP NOT NULL;
+
+ALTER TABLE utilisateur
+    ALTER COLUMN prenomUt TYPE VARCHAR(255) USING (prenomUt::VARCHAR(255));
+
+ALTER TABLE utilisateur
+    ALTER COLUMN prenomUt DROP NOT NULL;
+
+ALTER TABLE article
+    DROP COLUMN puArt;
+
+ALTER TABLE article
+    ADD puArt DOUBLE PRECISION NOT NULL;
+
+ALTER TABLE client
+    ALTER COLUMN telCl TYPE VARCHAR(255) USING (telCl::VARCHAR(255));

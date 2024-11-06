@@ -1,0 +1,32 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+    <persistence-unit name="GestionCommande">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>Model.Article</class>
+        <class>Model.Commande</class>
+        <class>Model.Client</class>
+        <class>Model.Facture</class>
+        <class>Model.Utilisateur</class>
+        <class>JPA.JPA</class>
+        <properties>
+            <!-- JDBC connection properties for PostgreSQL -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/gestioncommande"/>
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.password" value="123"/>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+
+            <!-- Hibernate properties -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect"/>
+
+            <property name="hibernate.show_sql" value="false"/>
+
+            <!-- debugging section-->
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.use_sql_comments" value="false"/>
+            <!-- Hibernate properties for automatic schema generation -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
